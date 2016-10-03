@@ -1,17 +1,19 @@
 import {Component} from '@angular/core';
-import {HackersService} from './../../services/hackers.services';
-import {OrderArrayByPipe} from './../../pipes/array.sort.pipes';
-
+import {HackerListComponent} from './../hackerList/hackerlist.component';
+import {RouteParams} from '@angular/router-deprecated';
+import {OnInit} from '@angular/core';
 
 @Component({
 	templateUrl: './js/app/components/about/about.html',
-    pipes : [OrderArrayByPipe]
+    directives: [HackerListComponent]
 })
-export class AboutComponent {
-    hackers;
+export class AboutComponent implements OnInit{
 
-    constructor(hs:HackersService) {
-        this.hackers = hs.getHackers();
+    constructor(private _routeParams:RouteParams) {
+
     }
-    
+
+    ngOnInit(){
+        alert(this._routeParams.get('msg'));
+    }
 }

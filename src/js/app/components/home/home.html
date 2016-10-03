@@ -2,20 +2,14 @@
     <div class="col-sm-12">
         <h2>Home</h2>
 
-       <p> {{ myDate | date:'dd' }} </p>
-           <p>{{ 'Hellooo!!!' | uppercase }}</p>
+        <hackerlist></hackerlist>
 
 <form (ngSubmit)="saveHacker()" #hackerForm="ngForm">
     <lable for="">Name: <input type="text" [(ngModel)]="hacker.name" ngControl="name" required> </lable>
     <lable for="">Points: <input type="text" [(ngModel)]="hacker.points" ngControl="points" required> </lable>
 
     <button type="submit" [disabled]="!hackerForm.form.valid">Save</button>
-
+    <button (click)="goToAbout()">Go to About</button>
 </form>
-    <ul>
-        <li *ngFor="let hacker of hackers | OrderArray:'-points'">
-            {{hacker.points + ':' + hacker.name}}
-        </li>
-    </ul>
     </div>
 </div>

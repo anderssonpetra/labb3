@@ -30,6 +30,13 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 HackersService.prototype.addHacker = function (hacker) {
                     this.hackers.push(hacker);
                 };
+                HackersService.prototype.removeHacker = function (name) {
+                    for (var i = 0, length_1 = this.hackers.length; i < length_1; i++) {
+                        if (this.hackers[i].name === name) {
+                            this.hackers.splice(i, 1);
+                        }
+                    }
+                };
                 HackersService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])

@@ -10,7 +10,9 @@
 
             <ul class="pure-menu-list">
                 <li class="pure-menu-item"><a class="pure-menu-link" [class.active]="menuActive" [routerLink]="['Home']"><i class="fa fa-chevron-right"></i> Home</a></li>
-                <li class="pure-menu-item"><a class="pure-menu-link" [class.active]="menuActive" [routerLink]="['About']"><i class="fa fa-chevron-right"></i> About</a></li>
+                <li class="pure-menu-item"><a class="pure-menu-link" [class.active]="menuActive" [routerLink]="['About', {msg: 'jag är ett värde'}]"><i class="fa fa-chevron-right"></i> About</a></li>
+                <li class="pure-menu-item"><a class="pure-menu-link" [class.active]="menuActive" [routerLink]="['Contact']"><i class="fa fa-chevron-right"></i> Contact</a></li>
+
             </ul>
         </div>
     </div>

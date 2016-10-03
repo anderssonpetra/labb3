@@ -1,4 +1,4 @@
-System.register(['@angular/core', './../hackerList/hackerlist.component', '@angular/router-deprecated'], function(exports_1, context_1) {
+System.register(['@angular/core', './../hackerList/hackerlist.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['@angular/core', './../hackerList/hackerlist.component', '@angu
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, hackerlist_component_1, router_deprecated_1;
-    var AboutComponent;
+    var core_1, hackerlist_component_1;
+    var ContactComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -19,29 +19,21 @@ System.register(['@angular/core', './../hackerList/hackerlist.component', '@angu
             },
             function (hackerlist_component_1_1) {
                 hackerlist_component_1 = hackerlist_component_1_1;
-            },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
             }],
         execute: function() {
-            AboutComponent = (function () {
-                function AboutComponent(_routeParams) {
-                    this._routeParams = _routeParams;
+            ContactComponent = (function () {
+                function ContactComponent() {
                 }
-                AboutComponent.prototype.ngOnInit = function () {
-                    alert(this._routeParams.get('msg'));
-                };
-                AboutComponent = __decorate([
+                ContactComponent = __decorate([
                     core_1.Component({
-                        template: "<div class=\"row\">     <div class=\"col-sm-12\">         <h2 check-username>About</h2>  <hackerlist></hackerlist> <p>TJOPP</p>      </div> </div>",
+                        template: "<div class=\"row\">     <div class=\"col-sm-12\">         <h2 check-username>Contact</h2>  <p>Contact me plezzzz</p>      </div> </div>",
                         directives: [hackerlist_component_1.HackerListComponent]
                     }), 
-                    __metadata('design:paramtypes', [(typeof (_a = typeof router_deprecated_1.RouteParams !== 'undefined' && router_deprecated_1.RouteParams) === 'function' && _a) || Object])
-                ], AboutComponent);
-                return AboutComponent;
-                var _a;
+                    __metadata('design:paramtypes', [])
+                ], ContactComponent);
+                return ContactComponent;
             }());
-            exports_1("AboutComponent", AboutComponent);
+            exports_1("ContactComponent", ContactComponent);
         }
     }
 });

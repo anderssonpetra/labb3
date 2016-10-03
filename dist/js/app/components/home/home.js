@@ -1,4 +1,4 @@
-System.register(['@angular/core', './../../pipes/array.sort.pipes', './../../services/hackers.services'], function(exports_1, context_1) {
+System.register(['@angular/core', './../../services/hackers.services', './../hackerList/hackerlist.component', '@angular/router-deprecated'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,39 +10,48 @@ System.register(['@angular/core', './../../pipes/array.sort.pipes', './../../ser
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, array_sort_pipes_1, hackers_services_1;
+    var core_1, hackers_services_1, hackerlist_component_1, router_deprecated_1;
     var HomeComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (array_sort_pipes_1_1) {
-                array_sort_pipes_1 = array_sort_pipes_1_1;
-            },
             function (hackers_services_1_1) {
                 hackers_services_1 = hackers_services_1_1;
+            },
+            function (hackerlist_component_1_1) {
+                hackerlist_component_1 = hackerlist_component_1_1;
+            },
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
             }],
         execute: function() {
             HomeComponent = (function () {
-                function HomeComponent(hs) {
-                    this.HS = hs;
-                    this.hackers = hs.getHackers();
+                function HomeComponent(_hackerService, _router) {
+                    this._hackerService = _hackerService;
+                    this._router = _router;
+                    this.hackers = _hackerService.getHackers();
                     this.hacker = {};
                 }
-                HomeComponent.prototype.saveHacker = function () {
-                    this.hackers.push(Object.assign({}, this.hacker));
-                    this.hacker = {};
+                // saveHacker() {
+                //     this._hackerService.addHacker(this.hacker);
+                //     this.hacker = {};
+                // }
+                HomeComponent.prototype.goToAbout = function () {
+                    var link = ['About', { msg: 'hej jag är en param ' }];
+                    this._router.navigate(link);
                 };
                 HomeComponent = __decorate([
                     core_1.Component({
-                        pipes: [array_sort_pipes_1.OrderArrayByPipe],
-                        template: "<div class=\"row\">     <div class=\"col-sm-12\">         <h2>Home</h2>         <p> {{ myDate | date:'dd' }} </p>            <p>{{ 'Hellooo!!!' | uppercase }}</p>  <form (ngSubmit)=\"saveHacker()\" #hackerForm=\"ngForm\">     <lable for=\"\">Name: <input type=\"text\" [(ngModel)]=\"hacker.name\" ngControl=\"name\" required> </lable>     <lable for=\"\">Points: <input type=\"text\" [(ngModel)]=\"hacker.points\" ngControl=\"points\" required> </lable>      <button type=\"submit\" [disabled]=\"!hackerForm.form.valid\">Save</button>  </form>     <ul>         <li *ngFor=\"let hacker of hackers | OrderArray:'-points'\">             {{hacker.points + ':' + hacker.name}}         </li>     </ul>     </div> </div>",
+                        template: "<div class=\"row\">     <div class=\"col-sm-12\">         <h2>Home</h2>          <hackerlist></hackerlist>  <form (ngSubmit)=\"saveHacker()\" #hackerForm=\"ngForm\">     <lable for=\"\">Name: <input type=\"text\" [(ngModel)]=\"hacker.name\" ngControl=\"name\" required> </lable>     <lable for=\"\">Points: <input type=\"text\" [(ngModel)]=\"hacker.points\" ngControl=\"points\" required> </lable>      <button type=\"submit\" [disabled]=\"!hackerForm.form.valid\">Save</button>     <button (click)=\"goToAbout()\">Go to About</button> </form>     </div> </div>",
                         styles: ["h2 { \t }  .ng-valid[required]{     border-left: 5px solid green; }"],
+                        directives: [hackerlist_component_1.HackerListComponent]
                     }), 
-                    __metadata('design:paramtypes', [hackers_services_1.HackersService])
+                    __metadata('design:paramtypes', [hackers_services_1.HackersService, (typeof (_a = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _a) || Object])
                 ], HomeComponent);
                 return HomeComponent;
+                var _a;
             }());
             exports_1("HomeComponent", HomeComponent);
         }

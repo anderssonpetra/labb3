@@ -4,6 +4,7 @@ import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 
 import {HomeComponent} from './components/home/home';
 import {AboutComponent} from './components/about/about';
+import {ContactComponent} from './components/contact/contact';
 
 
 @Component({
@@ -14,7 +15,9 @@ import {AboutComponent} from './components/about/about';
 })
 @RouteConfig([
     { path: '/home', name: 'Home', component: HomeComponent, useAsDefault: true },
-    { path: '/about', name: 'About', component: AboutComponent }
+    { path: '/about/:msg', name: 'About', component: AboutComponent },
+    { path: '/Contact', name: 'Contact', component: ContactComponent }
+
 ])
 export class AppComponent {
     menuActive: boolean;

@@ -1,29 +1,32 @@
 import {Component} from '@angular/core';
-import {OrderArrayByPipe} from './../../pipes/array.sort.pipes';
 import {HackersService} from './../../services/hackers.services';
+import {HackerListComponent} from './../hackerList/hackerlist.component';
+import {Router} from '@angular/router-deprecated';
+
 
 @Component({
-    pipes : [OrderArrayByPipe],
     templateUrl: './js/app/components/home/home.html',
     styleUrls: ['./js/app/components/home/home.css'],
+    directives: [HackerListComponent]
 })
 export class HomeComponent {
 
     hackers: Array<Object>;
     hacker;
-    HS:HackersService;
 
-    constructor(hs:HackersService) {
-
-        this.HS = hs;
-        this.hackers = hs.getHackers();
+    constructor(private _hackerService:HackersService, private _router:Router) {
+        this.hackers = _hackerService.getHackers();
         this.hacker = {};
     }
-    saveHacker() {
-        this.hackers.push(Object.assign({}, this.hacker));
-        this.hacker = {};
-    }
+   // saveHacker() {
+    //     this._hackerService.addHacker(this.hacker);
+    //     this.hacker = {};
+    // }
 
+    goToAbout(){
+        let link = ['About', {msg: 'hej jag är en param '}];
+        this._router.navigate(link);
+    }
 }
 
 //  constructor() {

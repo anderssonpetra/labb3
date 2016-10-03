@@ -17,4 +17,12 @@ export class HackersService {
 
     }
 
+    removeHacker(name){
+        for(let i = 0, length = this.hackers.length; i <length; i++){
+            if(this.hackers[i].name === name){
+                this.hackers.splice(i, 1);
+            }
+        }
+    }
+
 }

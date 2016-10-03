@@ -1,0 +1,5 @@
+<ul>
+    <li *ngFor="let hacker of hackers | OrderArray:'-points'" (click)="removeHacker(hacker.name)">
+        {{hacker.points + ':' + hacker.name}}
+    </li>
+</ul>
