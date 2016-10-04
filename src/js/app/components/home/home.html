@@ -3,9 +3,11 @@
         <h2>Home</h2>
 
         <hackerlist></hackerlist>
+        <norris-joke (joke)="logJoke($event)"></norris-joke>
+        <button (click)="sendMsg()">send msg</button>
 
 <form (ngSubmit)="saveHacker()" #hackerForm="ngForm">
-    <lable for="">Name: <input type="text" [(ngModel)]="hacker.name" ngControl="name" required> </lable>
+    <lable for="">Name: <input type="text" [(ngModel)]="hacker.name" ngControl="name" required validateAsync> </lable>
     <lable for="">Points: <input type="text" [(ngModel)]="hacker.points" ngControl="points" required> </lable>
 
     <button type="submit" [disabled]="!hackerForm.form.valid">Save</button>

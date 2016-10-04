@@ -25,17 +25,26 @@ System.register(['@angular/core', './../../services/hackers.services', './../../
             }],
         execute: function() {
             HackerListComponent = (function () {
-                function HackerListComponent(hs) {
-                    this.HS = hs;
-                    this.hackers = hs.getHackers();
+                function HackerListComponent(_hs) {
+                    var _this = this;
+                    this._hs = _hs;
+                    this.hackers = _hs.getHackers();
+                    this.msg = _hs.getMsg();
+                    this.sub = _hs.emitter.subscribe(function (msg) {
+                        _this.msg = msg;
+                    });
                 }
+                HackerListComponent.prototype.ngOnDestroy = function () {
+                    console.log('unsubscribes');
+                    this.sub.unsubscribe();
+                };
                 HackerListComponent.prototype.removeHacker = function (name) {
-                    this.HS.removeHacker(name);
+                    this._hs.removeHacker(name);
                 };
                 HackerListComponent = __decorate([
                     core_1.Component({
                         selector: 'hackerlist',
-                        template: "<ul>     <li *ngFor=\"let hacker of hackers | OrderArray:'-points'\" (click)=\"removeHacker(hacker.name)\">         {{hacker.points + ':' + hacker.name}}     </li> </ul>",
+                        template: "<ul>     <li *ngFor=\"let hacker of hackers | OrderArray:'-points'\" (click)=\"removeHacker(hacker.name)\">         {{hacker.points + ':' + hacker.name}}     </li> </ul>  <p>{{msg}}</p>",
                         pipes: [array_sort_pipes_1.OrderArrayByPipe]
                     }), 
                     __metadata('design:paramtypes', [hackers_services_1.HackersService])

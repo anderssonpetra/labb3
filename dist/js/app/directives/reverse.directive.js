@@ -11,7 +11,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var CheckUsername;
+    var ReverseDirective;
     return {
         setters:[
             function (core_1_1) {
@@ -19,28 +19,39 @@ System.register(['@angular/core'], function(exports_1, context_1) {
             }],
         execute: function() {
             //metadata
-            CheckUsername = (function () {
-                function CheckUsername(_element, _renderer) {
+            ReverseDirective = (function () {
+                function ReverseDirective(_element, _renderer) {
                     this._element = _element;
                     this._renderer = _renderer;
-                    _renderer.setElementStyle(_element.nativeElement, 'color', 'red');
                 }
-                CheckUsername.prototype.onMouse = function () {
-                    this._renderer.setElementStyle(this._element.nativeElement, 'color', 'red');
+                ReverseDirective.prototype.onKeyup = function (event) {
+                    console.dir(this.msg);
+                    //  console.log(event.srcElement.value.split("").reverse().join(""));
+                    var rev = event.srcElement.value.split("").reverse().join("");
+                    this._renderer.setElementAttribute(this.targetElement, 'value', rev);
                 };
-                CheckUsername = __decorate([
+                __decorate([
+                    core_1.Input('reverse'), 
+                    __metadata('design:type', Object)
+                ], ReverseDirective.prototype, "targetElement", void 0);
+                __decorate([
+                    //kan byta namn på den för att matcha bättre utanför
+                    core_1.Input('hi'), 
+                    __metadata('design:type', Object)
+                ], ReverseDirective.prototype, "msg", void 0);
+                ReverseDirective = __decorate([
                     core_1.Directive({
-                        selector: '[check-username]',
+                        selector: '[reverse]',
                         host: {
-                            '(mouseenter)': 'onMouse()'
+                            '(keyup)': 'onKeyup($event)'
                         }
                     }), 
                     __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _b) || Object])
-                ], CheckUsername);
-                return CheckUsername;
+                ], ReverseDirective);
+                return ReverseDirective;
                 var _a, _b;
             }());
-            exports_1("CheckUsername", CheckUsername);
+            exports_1("ReverseDirective", ReverseDirective);
         }
     }
 });

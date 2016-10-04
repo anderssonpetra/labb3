@@ -20,10 +20,22 @@ System.register(['@angular/core'], function(exports_1, context_1) {
         execute: function() {
             HackersService = (function () {
                 function HackersService() {
+                    this.emitter = new core_1.EventEmitter();
                     this.hackers = [
                         { name: 'Petrofs', points: 99 }
                     ];
+                    this._msg = 'default msg';
+                    //this._msg =  {text: 'default mas'}; 
+                    //för att åf den att visas, change detection, quick fix, öägga in det i ett object och säga attdet finns ett textobject där.
                 }
+                HackersService.prototype.setMsg = function (msg) {
+                    console.log(msg);
+                    this._msg = msg;
+                    this.emitter.emit(msg); //emittar ut till alla som lyssnar att datan ändrats, comåonenten som använder detta måste ha en emit-subscriber, glöm inte att unsubscriba 
+                };
+                HackersService.prototype.getMsg = function () {
+                    return this._msg; //returnerar här objecter vilket vi vill. istället för .text
+                };
                 HackersService.prototype.getHackers = function () {
                     return this.hackers;
                 };
