@@ -46,7 +46,7 @@ System.register(['@angular/core', './../../services/hackers.services', './../../
                         selector: 'hackerlist',
                         providers: [hackers_services_1.HackersService],
                         template: "<ul>     <li *ngFor=\"let hacker of hackers | OrderArray:'-points'\" (click)=\"removeHacker(hacker.name)\">         {{hacker.points + ':' + hacker.name}}     </li> </ul>  <p>{{msg}}</p>",
-                        pipes: [array_sort_pipes_1.OrderArrayByPipe],
+                        pipes: [array_sort_pipes_1.OrderArrayByPipe]
                     }), 
                     __metadata('design:paramtypes', [hackers_services_1.HackersService])
                 ], HackerListComponent);

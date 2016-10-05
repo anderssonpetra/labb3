@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './components/home/home', './components/about/about', './components/notes/notes', './components/userComponents/login/login', './components/userComponents/newuser/newuser'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './components/home/home', './components/about/about', './components/notes/notes'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './components/ho
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, home_1, about_1, notes_1, login_1, newuser_1;
+    var core_1, router_deprecated_1, home_1, about_1, notes_1;
     var AppComponent;
     return {
         setters:[
@@ -28,12 +28,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './components/ho
             },
             function (notes_1_1) {
                 notes_1 = notes_1_1;
-            },
-            function (login_1_1) {
-                login_1 = login_1_1;
-            },
-            function (newuser_1_1) {
-                newuser_1 = newuser_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -55,8 +49,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './components/ho
                         { path: '/home', name: 'Home', component: home_1.HomeComponent, useAsDefault: true },
                         { path: '/about/:msg', name: 'About', component: about_1.AboutComponent },
                         { path: '/Notes', name: 'Notes', component: notes_1.NotesComponent },
-                        { path: '/Login', name: 'Login', component: login_1.LoginComponent },
-                        { path: '/NewUser', name: 'NewUser', component: newuser_1.NewUserComponent }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

@@ -17,8 +17,8 @@ import {NewUserComponent} from './components/userComponents/newuser/newuser';
     { path: '/home', name: 'Home', component: HomeComponent, useAsDefault: true },
     { path: '/about/:msg', name: 'About', component: AboutComponent },
     { path: '/Notes', name: 'Notes', component: NotesComponent },
-    { path: '/Login', name: 'Login', component: LoginComponent },
-    { path: '/NewUser', name: 'NewUser', component: NewUserComponent }
+   // { path: '/Login', name: 'Login', component: LoginComponent },
+    //{ path: '/NewUser', name: 'NewUser', component: NewUserComponent }
 
 
 
