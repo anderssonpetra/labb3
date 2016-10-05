@@ -1,4 +1,4 @@
-System.register(['@angular/core', './../../services/hackers.services', './../hackerList/hackerlist.component', '@angular/router-deprecated', './../norris/Norris.component', './../validators/async.validator'], function(exports_1, context_1) {
+System.register(['@angular/core', './../../services/hackers.services', './../hackerList/hackerlist.component', '@angular/router-deprecated', './../norris/Norris.component', './../validators/async.validator', './../../services/login.services'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', './../../services/hackers.services', './../hac
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, hackers_services_1, hackerlist_component_1, router_deprecated_1, Norris_component_1, async_validator_1;
+    var core_1, hackers_services_1, hackerlist_component_1, router_deprecated_1, Norris_component_1, async_validator_1, login_services_1;
     var HomeComponent;
     return {
         setters:[
@@ -31,6 +31,9 @@ System.register(['@angular/core', './../../services/hackers.services', './../hac
             },
             function (async_validator_1_1) {
                 async_validator_1 = async_validator_1_1;
+            },
+            function (login_services_1_1) {
+                login_services_1 = login_services_1_1;
             }],
         execute: function() {
             HomeComponent = (function () {
@@ -58,7 +61,7 @@ System.register(['@angular/core', './../../services/hackers.services', './../hac
                     core_1.Component({
                         template: "<div class=\"row\">     <div class=\"col-sm-12\">         <h2>Home</h2>          <hackerlist></hackerlist>         <norris-joke (joke)=\"logJoke($event)\"></norris-joke>         <button (click)=\"sendMsg()\">send msg</button>  <form (ngSubmit)=\"saveHacker()\" #hackerForm=\"ngForm\">     <lable for=\"\">Name: <input type=\"text\" [(ngModel)]=\"hacker.name\" ngControl=\"name\" required validateAsync> </lable>     <lable for=\"\">Points: <input type=\"text\" [(ngModel)]=\"hacker.points\" ngControl=\"points\" required> </lable>      <button type=\"submit\" [disabled]=\"!hackerForm.form.valid\">Save</button>     <button (click)=\"goToAbout()\">Go to About</button> </form>     </div> </div>",
                         styles: ["h2 { \t }  .ng-valid[required]{     border-left: 5px solid green; } .ng-valid{     border-left: 5px solid red; }"],
-                        directives: [hackerlist_component_1.HackerListComponent, Norris_component_1.NorrisComponent, async_validator_1.AsyncValidator]
+                        directives: [hackerlist_component_1.HackerListComponent, Norris_component_1.NorrisComponent, async_validator_1.AsyncValidator, login_services_1.LoginService]
                     }), 
                     __metadata('design:paramtypes', [hackers_services_1.HackersService, (typeof (_a = typeof router_deprecated_1.Router !== 'undefined' && router_deprecated_1.Router) === 'function' && _a) || Object])
                 ], HomeComponent);

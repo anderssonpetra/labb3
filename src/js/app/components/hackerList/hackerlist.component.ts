@@ -5,8 +5,9 @@ import {OrderArrayByPipe} from './../../pipes/array.sort.pipes';
 
 @Component({
     selector: 'hackerlist',
+    providers: [HackersService],
 	templateUrl: './js/app/components/hackerlist/hackerlist.component.html',
-    pipes : [OrderArrayByPipe]
+    pipes : [OrderArrayByPipe],
 })
 export class HackerListComponent implements OnDestroy{
 

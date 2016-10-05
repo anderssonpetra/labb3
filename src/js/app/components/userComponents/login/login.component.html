@@ -1,0 +1,12 @@
+
+        <h2>Login</h2>
+
+<p>Logga in med användarnamn och lösenord!</p>
+
+<form (ngSubmit)="login()" #LoginForm="ngForm">
+    <lable for="">UserName: <input type="text" [(ngModel)]="user.username" ngControl="username" required validateAsync> </lable>
+    <lable for="">Password:: <input type="text" [(ngModel)]="user.password" ngControl="password" required> </lable>
+
+    <button type="submit" [disabled]="!LoginForm.form.valid">Login</button>
+    <button (click)="goToAbout()">Go to About</button>
+</form>

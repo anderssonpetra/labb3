@@ -2,9 +2,8 @@ import {Component} from '@angular/core';
 import {HackersService} from './../../services/hackers.services';
 import {HackerListComponent} from './../hackerList/hackerlist.component';
 import {Router} from '@angular/router-deprecated';
-import {NorrisComponent} from './../norris/Norris.component'
-import {AsyncValidator} from './../validators/async.validator'
-
+import {NorrisComponent} from './../norris/Norris.component';
+import {AsyncValidator} from './../validators/async.validator';
 
 
 @Component({

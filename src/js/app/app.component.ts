@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
-
 import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
-
 import {HomeComponent} from './components/home/home';
 import {AboutComponent} from './components/about/about';
-import {ContactComponent} from './components/contact/contact';
+import {NotesComponent} from './components/notes/notes';
+import {NewUserComponent} from './components/userComponents/newuser/newuser';
+
 
 
 @Component({
@@ -16,7 +16,11 @@ import {ContactComponent} from './components/contact/contact';
 @RouteConfig([
     { path: '/home', name: 'Home', component: HomeComponent, useAsDefault: true },
     { path: '/about/:msg', name: 'About', component: AboutComponent },
-    { path: '/Contact', name: 'Contact', component: ContactComponent }
+    { path: '/Notes', name: 'Notes', component: NotesComponent },
+    { path: '/Login', name: 'Login', component: LoginComponent },
+    { path: '/NewUser', name: 'NewUser', component: NewUserComponent }
+
+
 
 ])
 export class AppComponent {
